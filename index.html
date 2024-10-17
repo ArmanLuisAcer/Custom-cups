@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You!</title>
+    <style>
+        /* Basic styles for the slider */
+        .slider {
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            margin: auto;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slider img {
+            width: 100%;
+            height: auto;
+        }
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .navigation button {
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <h1>Thank you, [Customer's Name]!</h1>
+                <img src="greeting.jpg" alt="Greeting Image">
+            </div>
+            <div class="slide">
+                <h2>Motivational Quote</h2>
+                <blockquote>"Believe in yourself!"</blockquote>
+                <img src="wallpaper1.jpg" alt="Wallpaper">
+                <a href="wallpaper1.jpg" download>Download Wallpaper</a>
+            </div>
+            <div class="slide">
+                <h2>Contact Us</h2>
+                <img src="contact.jpg" alt="Contact Information">
+            </div>
+        </div>
+        <div class="navigation">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(index) {
+            const offset = -index * 100; // Each slide is 100% width
+            slides.style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+            slideIndex = (slideIndex + 1) % totalSlides;
+            showSlide(slideIndex);
+        }
+
+        function prevSlide() {
+            slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+            showSlide(slideIndex);
+        }
+
+        // Initialize with the first slide
+        showSlide(slideIndex);
+    </script>
+</body>
+</html>
