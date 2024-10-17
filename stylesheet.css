@@ -1,3 +1,38 @@
+/* Style for download button container */
+.download-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Style for the download button */
+.download-container a {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding around the button */
+    font-size: 16px; /* Font size */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 8px; /* Rounded corners */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Style for the download icon */
+.download-container box-icon {
+    fill: white; /* Color for the icon */
+    width: 24px;
+    height: 24px;
+}
+
+/* Hover effect */
+.download-container a:hover {
+    background-color: #45a049; /* Darker green when hovered */
+}
+
 .slider {
             width: 100%;
             max-width: 600px;
