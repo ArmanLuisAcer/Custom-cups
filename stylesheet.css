@@ -1,11 +1,4 @@
-/* Style for the slider container */
-.slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
 
-/* Style for the slide elements */
 .slides {
     display: flex;
     transition: transform 0.5s ease-in-out;
