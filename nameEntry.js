@@ -15,16 +15,11 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
 
     const capitalizedName = nameInput.charAt(0).toUpperCase() + nameInput.slice(1).toLowerCase();
 
-    // Send the name to the Google Apps Script
-    fetch(`https://script.google.com/macros/s/AKfycbxXmHwT7BRsW1kHgjOutAVpiR7zwyL_pK5yemq6lA-zGBx2QYSYfMzqFG7Dqf3iBhHsXw/exec?name=${encodeURIComponent(capitalizedName)}`)
-        .then(response => response.text())
-        .then(data => {
-            console.log(data); // Log success message or handle response
-            // Redirect to the thank-you page
-            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}`;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            submitButton.disabled = false; // Re-enable button if there's an error
-        });
+    // Get 'quote' and 'wallpaper' parameters from the current URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const quote = urlParams.get('quote') || 1;  // Default to 1 if not provided
+    const wallpaper = urlParams.get('wallpaper') || 1;  // Default to 1 if not provided
+
+    // Redirect to the thank-you page, passing the customer name, quote, and wallpaper
+    window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=${quote}&wallpaper=${wallpaper}`;
 });
