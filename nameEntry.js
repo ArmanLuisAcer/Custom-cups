@@ -9,7 +9,16 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
     }
 
     const capitalizedName = nameInput.charAt(0).toUpperCase() + nameInput.slice(1).toLowerCase();
-    
-    // Redirect to the thank-you page with the name as a URL parameter
-    window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}`;
+
+    // Send the name to the Google Apps Script
+    fetch(`https://script.google.com/macros/s/AKfycbxXmHwT7BRsW1kHgjOutAVpiR7zwyL_pK5yemq6lA-zGBx2QYSYfMzqFG7Dqf3iBhHsXw/exec?name=${encodeURIComponent(capitalizedName)}`)
+        .then(response => response.text())
+        .then(data => {
+            console.log(data); // Log success message or handle response
+            // Redirect to the thank-you page
+            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}`;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 });
