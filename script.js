@@ -23,8 +23,6 @@ showSlide(slideIndex);
 // URL Parameters for Dynamic Content
 const urlParams = new URLSearchParams(window.location.search);
 const customer = urlParams.get('customer');
-const quote = urlParams.get('quote');
-const wallpaper = urlParams.get('wallpaper');
 
 // Set customer name dynamically
 if (customer) {
@@ -32,12 +30,14 @@ if (customer) {
 }
 
 // Set quote image dynamically
+const quote = urlParams.get('quote');
 if (quote) {
     document.getElementById('quoteImage').src = `images/Quote${quote}.jpg`;
     document.getElementById('quoteDownloadLink').href = `images/Quote${quote}.jpg`;
 }
 
 // Set wallpaper image dynamically
+const wallpaper = urlParams.get('wallpaper');
 if (wallpaper) {
     document.getElementById('wallpaperImage').src = `images/Wallpaper${wallpaper}.jpg`;
     document.getElementById('wallpaperDownloadLink').href = `images/Wallpaper${wallpaper}.jpg`;
