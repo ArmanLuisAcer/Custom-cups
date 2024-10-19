@@ -1,35 +1,33 @@
-
-.slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 400%; /* Adjust width based on the number of slides */
-}
-
-.slide {
-    flex: 1 0 100%;
-    width: 100%;
-}
-
-/* Navigation button styles */
-.navigation button {
-    position: absolute;
-    top: 50%;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    transform: translateY(-50%);
-}
-
-.navigation button:hover {
-    background-color: rgba(0,0,0,0.8);
-}
-
-.navigation button:first-of-type {
-    left: 10px;
-}
-
-.navigation button:last-of-type {
-    right: 10px;
-}
+.slider {
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            margin: auto;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slider img {
+            width: 100%;
+            height: auto;
+        }
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .navigation button {
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }

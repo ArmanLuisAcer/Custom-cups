@@ -33,12 +33,12 @@ if (customer) {
 const quote = urlParams.get('quote');
 if (quote) {
     document.getElementById('quoteImage').src = `images/Quote${quote}.jpg`;
-    document.getElementById('quoteDownloadLink').href = `images/Quote${quote}.jpg`; // Ensure this link exists in your images folder
+    document.getElementById('quoteDownloadLink').href = `images/Quote${quote}.jpg`;
 }
 
 // Set wallpaper image dynamically
 const wallpaper = urlParams.get('wallpaper');
 if (wallpaper) {
     document.getElementById('wallpaperImage').src = `images/Wallpaper${wallpaper}.jpg`;
-    document.getElementById('wallpaperDownloadLink').href = `images/Wallpaper${wallpaper}.jpg`; // Ensure this link exists in your images folder
+    document.getElementById('wallpaperDownloadLink').href = `images/Wallpaper${wallpaper}.jpg`;
 }
