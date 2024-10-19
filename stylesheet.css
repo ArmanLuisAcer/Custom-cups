@@ -1,42 +1,66 @@
-/* Style for the slider container */
-.slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
-/* Style for the slide elements */
+h1, h2 {
+    text-align: center;
+}
+
+.slider {
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+}
+
 .slides {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 400%; /* Adjust width based on the number of slides */
+    transition: transform 0.5s ease;
 }
 
 .slide {
-    flex: 1 0 100%;
-    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
-/* Navigation button styles */
-.navigation button {
-    position: absolute;
-    top: 50%;
-    background-color: rgba(0,0,0,0.5);
+.navigation {
+    text-align: center;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #28a745;
     color: white;
     border: none;
+    padding: 10px 20px;
     cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+input[type="text"] {
+    width: calc(100% - 20px);
     padding: 10px;
-    transform: translateY(-50%);
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.navigation button:hover {
-    background-color: rgba(0,0,0,0.8);
+form {
+    max-width: 300px;
+    margin: 20px auto;
+    text-align: center;
 }
 
-.navigation button:first-of-type {
-    left: 10px;
-}
-
-.navigation button:last-of-type {
-    right: 10px;
+#error {
+    text-align: center;
 }
