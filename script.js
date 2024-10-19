@@ -39,6 +39,6 @@ if (quote) {
 // Set wallpaper image dynamically
 const wallpaper = urlParams.get('wallpaper');
 if (wallpaper) {
-    document.getElementById('wallpaperImage').src = `images/Wallpaper${wallpaper}.jpg`;
-    document.getElementById('wallpaperDownloadLink').href = `images/Wallpaper${wallpaper}.jpg`;
+    document.getElementById('wallpaperImage').src = `images/${wallpaper}.jpg`;
+    document.getElementById('wallpaperDownloadLink').href = `images/${wallpaper}.jpg`;
 }
