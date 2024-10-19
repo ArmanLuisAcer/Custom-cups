@@ -21,8 +21,7 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
         .then(data => {
             console.log(data); // Log success message or handle response
             // Redirect to the thank-you page
-            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}`;
-        })
+            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute2&wallpaper=Wallpaper2`;
         .catch(error => {
             console.error('Error:', error);
             submitButton.disabled = false; // Re-enable button if there's an error
