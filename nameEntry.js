@@ -20,8 +20,13 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
         .then(response => response.text()) // Ensure you are processing the response correctly
         .then(data => {
             console.log(data); // Log success message or handle response
-            // Redirect to the thank-you page
-            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute2&wallpaper=Wallpaper2`;
+
+            // Assuming the cupId is passed as a URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const cupId = urlParams.get('cupId');
+
+            // Redirect to the thank-you page with the customer name and cupId
+            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute${cupId}&wallpaper=Wallpaper${cupId}`;
         })
         .catch(error => {
             console.error('Error:', error);
