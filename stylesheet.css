@@ -3,8 +3,6 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    max-width: 600px;
-    margin: auto;
 }
 
 /* Style for the slide elements */
@@ -17,34 +15,22 @@
 .slide {
     flex: 1 0 100%;
     width: 100%;
-    box-sizing: border-box;
-}
-
-.slider img {
-    width: 100%;
-    height: auto;
 }
 
 /* Navigation button styles */
-.navigation {
+.navigation button {
     position: absolute;
     top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-}
-
-.navigation button {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0,0,0,0.5);
     color: white;
     border: none;
     cursor: pointer;
     padding: 10px;
+    transform: translateY(-50%);
 }
 
 .navigation button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0,0,0,0.8);
 }
 
 .navigation button:first-of-type {
