@@ -1,37 +1,56 @@
-/* Style for download button container */
-.download-container {
+/* Style for the slider container */
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Style for the slide elements */
+.slides {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+    transition: transform 0.5s ease-in-out;
+    width: 400%; /* Adjust width based on the number of slides */
 }
 
-/* Style for the download button */
-.download-container a {
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text */
-    padding: 10px 20px; /* Padding around the button */
-    font-size: 16px; /* Font size */
-    text-align: center; /* Centered text */
-    text-decoration: none; /* Remove underline */
-    border-radius: 8px; /* Rounded corners */
+.slide {
+    flex: 1 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+}
+
+/* Navigation button styles */
+.navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
     display: flex;
-    align-items: center;
-    gap: 10px; /* Space between icon and text */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
+    justify-content: space-between;
+    transform: translateY(-50%);
 }
 
-/* Style for the download icon */
-.download-container box-icon {
-    fill: white; /* Color for the icon */
-    width: 24px;
-    height: 24px;
+.navigation button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
 }
 
-/* Hover effect */
-.download-container a:hover {
-    background-color: #45a049; /* Darker green when hovered */
+.navigation button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
-#error {
-    text-align: center;
+
+.navigation button:first-of-type {
+    left: 10px;
+}
+
+.navigation button:last-of-type {
+    right: 10px;
 }
