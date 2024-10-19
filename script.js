@@ -10,11 +10,23 @@ function showSlide(index) {
 function nextSlide() {
     slideIndex = (slideIndex + 1) % totalSlides;
     showSlide(slideIndex);
+    updateDownloadLink(); // Update the download link when sliding
 }
 
 function prevSlide() {
     slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
     showSlide(slideIndex);
+    updateDownloadLink(); // Update the download link when sliding
+}
+
+// Function to update the download link based on the current slide
+function updateDownloadLink() {
+    const wallpaperImage = document.getElementById('wallpaperImage');
+    const downloadLink = document.getElementById('wallpaperDownloadLink');
+
+    // Update the download link with the current wallpaper image source
+    downloadLink.href = wallpaperImage.src;
+    downloadLink.download = wallpaperImage.src.split('/').pop(); // Set the filename for download
 }
 
 // Initialize with the first slide
@@ -39,5 +51,5 @@ if (quote) {
 const wallpaper = urlParams.get('wallpaper');
 if (wallpaper) {
     document.getElementById('wallpaperImage').src = `images/${wallpaper}.jpg`;
-    //document.getElementById('wallpaperDownloadLink').href = `images/${wallpaper}.jpg`;
+    updateDownloadLink(); // Update the download link for the initial wallpaper
 }
