@@ -39,4 +39,5 @@ if (quote) {
 const wallpaper = urlParams.get('wallpaper');
 if (wallpaper) {
     document.getElementById('wallpaperImage').src = `images/${wallpaper}.jpg`;
+    //document.getElementById('wallpaperDownloadLink').href = `images/${wallpaper}.jpg`;
 }
