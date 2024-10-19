@@ -17,11 +17,12 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
 
     // Send the name to the Google Apps Script
     fetch(`https://script.google.com/macros/s/AKfycbxXmHwT7BRsW1kHgjOutAVpiR7zwyL_pK5yemq6lA-zGBx2QYSYfMzqFG7Dqf3iBhHsXw/exec?name=${encodeURIComponent(capitalizedName)}`)
-        .then(response => response.text())
+        .then(response => response.text()) // Ensure you are processing the response correctly
         .then(data => {
             console.log(data); // Log success message or handle response
             // Redirect to the thank-you page
             window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute2&wallpaper=Wallpaper2`;
+        })
         .catch(error => {
             console.error('Error:', error);
             submitButton.disabled = false; // Re-enable button if there's an error
