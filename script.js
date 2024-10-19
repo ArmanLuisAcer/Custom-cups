@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let slideIndex = 0;
     const slides = document.querySelector('.slides');
     const totalSlides = document.querySelectorAll('.slide').length;
 
     function showSlide(index) {
-        const offset = -index * 100; // Each slide is 100% width
+        const offset = -index * 100; // Move slide by 100% of its width
         slides.style.transform = `translateX(${offset}%)`;
     }
 
@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // URL Parameters for Dynamic Content
     const urlParams = new URLSearchParams(window.location.search);
     const customer = urlParams.get('customer');
+    const quote = urlParams.get('quote');
+    const wallpaper = urlParams.get('wallpaper');
 
     // Set customer name dynamically
     if (customer) {
@@ -31,14 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Set quote image dynamically
-    const quote = urlParams.get('quote');
     if (quote) {
         document.getElementById('quoteImage').src = `images/Quote${quote}.jpg`;
-        document.getElementById('quoteDownloadLink').href = `images/Quote${quote}.jpg`;
     }
 
     // Set wallpaper image dynamically
-    const wallpaper = urlParams.get('wallpaper');
     if (wallpaper) {
         document.getElementById('wallpaperImage').src = `images/Wallpaper${wallpaper}.jpg`;
         document.getElementById('wallpaperDownloadLink').href = `images/Wallpaper${wallpaper}.jpg`;
