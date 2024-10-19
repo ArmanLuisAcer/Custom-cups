@@ -25,7 +25,10 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
             const urlParams = new URLSearchParams(window.location.search);
             const cupId = urlParams.get('cupId');
 
-            // Redirect to the thank-you page with the customer name and cupId
+            // Update history to prevent going back to name entry page
+            window.history.replaceState(null, '', `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute${cupId}&wallpaper=Wallpaper${cupId}`);
+
+            // Redirect to the thank-you page
             window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute${cupId}&wallpaper=Wallpaper${cupId}`;
         })
         .catch(error => {
