@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enter Your Name</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body>
-    <h1>Welcome!</h1>
-    <h2>Please enter your name:</h2>
-    <form id="nameForm">
-        <input type="text" id="customerName" maxlength="15" required placeholder="Enter your name" />
-        <button type="submit">Submit</button>
-    </form>
+<body class="body">
+    
+    <div class="wrapper">
+        <form id="nameForm"> 
+            <h1>Welcome!</h1>
+          
+            <div class="input-box">
+                <input type="text" id="customerName" placeholder="Firstname" maxlength="15" required>
+                <i class='bx bxs-user'></i>       
+            </div>
+           
+            <div class="input-box">
+                <input type="text" id="customerLastname" placeholder="Lastname" maxlength="15" required>
+                <i class='bx bxs-user'></i>
+            </div>
+   
+            <button type="submit" class="btn">Submit</button>
+        
+        </form>
+   
+    </div>
+    
     <p id="error" style="color:red;"></p>
 
-    <script src="nameEntry.js"></script> <!-- Link to the new JavaScript file -->
+    <script src="nameEntry.js"></script> 
 </body>
 </html>
