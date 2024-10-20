@@ -28,18 +28,12 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
 
     // Send the name, cupId, and token to the Google Apps Script for recording the name
     fetch(`https://script.google.com/macros/s/AKfycbySysKfUwFs9SCTTyMrAns5s_X_YZxs-_8aEh6Gh66MJeQOZRVyYJ179qBgJe1CD4xqkw/exec?name=${encodeURIComponent(capitalizedName)}&cupId=${cupId}&token=${token}`)
-        .then(response => response.text()) 
+        .then(response => response.text())
         .then(data => {
-            console.log(data); // Log success message
-
-            // Store a flag in sessionStorage to indicate that the name has been submitted
-            sessionStorage.setItem('nameSubmitted', 'true');
-
-            // Update the history to prevent going back to nameEntry.html
-            window.history.replaceState(null, '', `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Quotes(${cupId})&wallpaper=Wallpaper${cupId}`);
-
-            // Redirect to the thank you page
-            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Quotes(${cupId})&wallpaper=Wallpaper${cupId}`;
+            // Write the response HTML from Google Apps Script to the document
+            document.open();
+            document.write(data); // This triggers the redirection from the server
+            document.close();
         })
         .catch(error => {
             console.error('Error:', error);
