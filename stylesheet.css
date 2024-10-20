@@ -21,7 +21,7 @@
     border-radius: 10px;
     padding: 30px 40px;
     border: 2px solid rgba(255, 255, 255, 0.2); /* Fixed */
-    backdrop-filter: blur(10px); /* Added blur value */
+    backdrop-filter: blur(4px); /* Added blur value */
 }
 
 .wrapper h1 {
