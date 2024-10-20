@@ -32,8 +32,8 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
         .then(data => {
             console.log(data); // Log success message
 
-            // Show a thank-you message or redirect
-            document.getElementById('message').innerText = "Thank you! Your name has been recorded.";
+            // Redirect to the thank you page
+            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Quotes(${cupId})&wallpaper=Wallpaper${cupId}`;
         })
         .catch(error => {
             console.error('Error:', error);
