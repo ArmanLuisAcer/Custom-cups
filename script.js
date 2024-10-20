@@ -26,7 +26,7 @@ function updateDownloadLink() {
 
     // Update the download link with the current wallpaper image source
     downloadLink.href = wallpaperImage.src;
-    downloadLink.download = "💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟💟"; // Set the custom filename for download
+    downloadLink.download = "💟💟💟💟💟💟💟💟💟💟"; // Set the custom filename for download
 }
 
 // Initialize with the first slide
