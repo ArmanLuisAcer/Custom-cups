@@ -27,7 +27,7 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
     }
 
     // Send the name, cupId, and token to the Google Apps Script for recording the name
-    fetch(`https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?name=${encodeURIComponent(capitalizedName)}&cupId=${cupId}&token=${token}`)
+    fetch(`https://script.google.com/macros/s/AKfycbySysKfUwFs9SCTTyMrAns5s_X_YZxs-_8aEh6Gh66MJeQOZRVyYJ179qBgJe1CD4xqkw/exec?name=${encodeURIComponent(capitalizedName)}&cupId=${cupId}&token=${token}`)
         .then(response => response.text()) 
         .then(data => {
             console.log(data); // Log success message
