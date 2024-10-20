@@ -32,6 +32,9 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
         .then(data => {
             console.log(data); // Log success message
 
+            // Store a flag in sessionStorage to indicate that the name has been submitted
+            sessionStorage.setItem('nameSubmitted', 'true');
+
             // Update the history to prevent going back to nameEntry.html
             window.history.replaceState(null, '', `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Quotes(${cupId})&wallpaper=Wallpaper${cupId}`);
 
@@ -46,11 +49,13 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
 
 // Check if the name has already been submitted when the page loads
 window.addEventListener('load', function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const nameSubmitted = urlParams.get('customer'); // Assuming the "customer" parameter is used in the thank-you page
+    const nameSubmitted = sessionStorage.getItem('nameSubmitted'); // Check if the name has been submitted
 
     if (nameSubmitted) {
         // Redirect to thank-you page if the name has already been submitted
-        window.location.href = `index.html?customer=${encodeURIComponent(nameSubmitted)}`;
+        const urlParams = new URLSearchParams(window.location.search);
+        const cupId = urlParams.get('cupId');
+        const capitalizedName = urlParams.get('customer') || 'Customer';
+        window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Quotes(${cupId})&wallpaper=Wallpaper${cupId}`;
     }
 });
