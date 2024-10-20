@@ -15,22 +15,21 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
 
     const capitalizedName = nameInput.charAt(0).toUpperCase() + nameInput.slice(1).toLowerCase();
 
-    // Extract cupId and token from the URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const cupId = urlParams.get('cupId');
-    const token = urlParams.get('token');  // Assuming token is also passed in the URL
-
-    // Send the name, cupId, and token to the Google Apps Script
-    fetch(`https://script.google.com/macros/s/AKfycbxMCXIXqy58CgcMuMYVclEZTvUDWSDGU01sF-uBozShmeK2XbR3dWi9CGNKSIrdm_JDzg/exec?name=${encodeURIComponent(capitalizedName)}&cupId=${cupId}&token=${token}`)
+    // Send the name to the Google Apps Script
+    fetch(`https://script.google.com/macros/s/AKfycbxXmHwT7BRsW1kHgjOutAVpiR7zwyL_pK5yemq6lA-zGBx2QYSYfMzqFG7Dqf3iBhHsXw/exec?name=${encodeURIComponent(capitalizedName)}`)
         .then(response => response.text()) // Ensure you are processing the response correctly
         .then(data => {
             console.log(data); // Log success message or handle response
+
+            // Assuming the cupId is passed as a URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const cupId = urlParams.get('cupId');
 
             // Update history to prevent going back to name entry page
             window.history.replaceState(null, '', `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute${cupId}&wallpaper=Wallpaper${cupId}`);
 
             // Redirect to the thank-you page
-            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Quote${cupId}&wallpaper=Wallpaper${cupId}`;
+            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute${cupId}&wallpaper=Wallpaper${cupId}`;
         })
         .catch(error => {
             console.error('Error:', error);
