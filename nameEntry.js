@@ -1,5 +1,5 @@
 document.getElementById('nameForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); // Prevent the default form submission
     const submitButton = document.querySelector('button[type="submit"]');
     const nameInput = document.getElementById('customerName').value.trim();
 
@@ -15,10 +15,10 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
 
     const capitalizedName = nameInput.charAt(0).toUpperCase() + nameInput.slice(1).toLowerCase();
 
-    // Extract cupId and token from the URL
+    // Extract cupId and token from the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const cupId = urlParams.get('cupId');
-    const token = urlParams.get('token');
+    const token = urlParams.get('token');  // Assuming token is also passed in the URL
 
     if (!cupId || !token) {
         document.getElementById('error').innerText = "Invalid cupId or token.";
@@ -26,30 +26,20 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
         return;
     }
 
-    // Send the name, cupId, and token to the Google Apps Script for recording the name
-    fetch(`https://script.google.com/macros/s/AKfycbySysKfUwFs9SCTTyMrAns5s_X_YZxs-_8aEh6Gh66MJeQOZRVyYJ179qBgJe1CD4xqkw/exec?name=${encodeURIComponent(capitalizedName)}&cupId=${cupId}&token=${token}`)
-        .then(response => response.text())
+    // Send the name, cupId, and token to the Google Apps Script
+    fetch(`https://script.google.com/macros/s/AKfycbxMCXIXqy58CgcMuMYVclEZTvUDWSDGU01sF-uBozShmeK2XbR3dWi9CGNKSIrdm_JDzg/exec?name=${encodeURIComponent(capitalizedName)}&cupId=${cupId}&token=${token}`)
+        .then(response => response.text()) // Ensure you are processing the response correctly
         .then(data => {
-            // Write the response HTML from Google Apps Script to the document
-            document.open();
-            document.write(data); // This triggers the redirection from the server
-            document.close();
+            console.log(data); // Log success message or handle response
+
+            // Update history to prevent going back to name entry page
+            window.history.replaceState(null, '', `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute${cupId}&wallpaper=Wallpaper${cupId}`);
+
+            // Redirect to the thank-you page
+            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Quote${cupId}&wallpaper=Wallpaper${cupId}`;
         })
         .catch(error => {
             console.error('Error:', error);
             submitButton.disabled = false; // Re-enable button if there's an error
         });
-});
-
-// Check if the name has already been submitted when the page loads
-window.addEventListener('load', function () {
-    const nameSubmitted = sessionStorage.getItem('nameSubmitted'); // Check if the name has been submitted
-
-    if (nameSubmitted) {
-        // Redirect to thank-you page if the name has already been submitted
-        const urlParams = new URLSearchParams(window.location.search);
-        const cupId = urlParams.get('cupId');
-        const capitalizedName = urlParams.get('customer') || 'Customer';
-        window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Quotes(${cupId})&wallpaper=Wallpaper${cupId}`;
-    }
 });
