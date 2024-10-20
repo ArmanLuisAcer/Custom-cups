@@ -20,12 +20,6 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
     const cupId = urlParams.get('cupId');
     const token = urlParams.get('token');  // Assuming token is also passed in the URL
 
-    if (!cupId || !token) {
-        document.getElementById('error').innerText = "Invalid cupId or token.";
-        submitButton.disabled = false;
-        return;
-    }
-
     // Send the name, cupId, and token to the Google Apps Script
     fetch(`https://script.google.com/macros/s/AKfycbxMCXIXqy58CgcMuMYVclEZTvUDWSDGU01sF-uBozShmeK2XbR3dWi9CGNKSIrdm_JDzg/exec?name=${encodeURIComponent(capitalizedName)}&cupId=${cupId}&token=${token}`)
         .then(response => response.text()) // Ensure you are processing the response correctly
