@@ -32,6 +32,9 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
         .then(data => {
             console.log(data); // Log success message
 
+            // Update the history to prevent going back to nameEntry.html
+            window.history.replaceState(null, '', `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Quotes(${cupId})&wallpaper=Wallpaper${cupId}`);
+
             // Redirect to the thank you page
             window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Quotes(${cupId})&wallpaper=Wallpaper${cupId}`;
         })
@@ -39,4 +42,15 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
             console.error('Error:', error);
             submitButton.disabled = false; // Re-enable button if there's an error
         });
+});
+
+// Check if the name has already been submitted when the page loads
+window.addEventListener('load', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const nameSubmitted = urlParams.get('customer'); // Assuming the "customer" parameter is used in the thank-you page
+
+    if (nameSubmitted) {
+        // Redirect to thank-you page if the name has already been submitted
+        window.location.href = `index.html?customer=${encodeURIComponent(nameSubmitted)}`;
+    }
 });
