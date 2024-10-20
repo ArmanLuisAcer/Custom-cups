@@ -1,5 +1,5 @@
 document.getElementById('nameForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault(); // Prevent default form submission
     const submitButton = document.querySelector('button[type="submit"]');
     const nameInput = document.getElementById('customerName').value.trim();
 
@@ -15,10 +15,10 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
 
     const capitalizedName = nameInput.charAt(0).toUpperCase() + nameInput.slice(1).toLowerCase();
 
-    // Extract cupId and token from the URL parameters
+    // Extract cupId and token from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const cupId = urlParams.get('cupId');
-    const token = urlParams.get('token');  // Assuming token is also passed in the URL
+    const token = urlParams.get('token');
 
     if (!cupId || !token) {
         document.getElementById('error').innerText = "Invalid cupId or token.";
@@ -26,17 +26,14 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
         return;
     }
 
-    // Send the name, cupId, and token to the Google Apps Script
-    fetch(`https://script.google.com/macros/s/AKfycbxMCXIXqy58CgcMuMYVclEZTvUDWSDGU01sF-uBozShmeK2XbR3dWi9CGNKSIrdm_JDzg/exec?name=${encodeURIComponent(capitalizedName)}&cupId=${cupId}&token=${token}`)
-        .then(response => response.text()) // Ensure you are processing the response correctly
+    // Send the name, cupId, and token to the Google Apps Script for recording the name
+    fetch(`https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?name=${encodeURIComponent(capitalizedName)}&cupId=${cupId}&token=${token}`)
+        .then(response => response.text()) 
         .then(data => {
-            console.log(data); // Log success message or handle response
+            console.log(data); // Log success message
 
-            // Update history to prevent going back to name entry page
-            window.history.replaceState(null, '', `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute${cupId}&wallpaper=Wallpaper${cupId}`);
-
-            // Redirect to the thank-you page
-            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Quote${cupId}&wallpaper=Wallpaper${cupId}`;
+            // Show a thank-you message or redirect
+            document.getElementById('message').innerText = "Thank you! Your name has been recorded.";
         })
         .catch(error => {
             console.error('Error:', error);
