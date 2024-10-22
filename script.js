@@ -44,7 +44,7 @@ if (customer) {
 // Set quote image dynamically
 const quote = urlParams.get('quote');
 if (quote) {
-    document.getElementById('quoteImage').src = `images/${quote}.jpg`;
+    document.getElementById('quoteImage').src = `images/${quote}.gif`;
 }
 
 // Set wallpaper image dynamically
