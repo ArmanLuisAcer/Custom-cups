@@ -111,11 +111,27 @@
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
+    padding: 0 10px; /* Reduced padding to fit better */
+    box-sizing: border-box;
 }
 
 .navigation button {
-    background-color: (rgba,255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border: none;
     cursor: pointer;
     padding: 10px;
+    max-width: 30%; /* Ensure buttons do not take too much space */
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .navigation {
+        width: 100%; /* Maintain full width */
+        padding: 0 5px; /* Reduce padding for smaller screens */
+    }
+
+    .navigation button {
+        padding: 8px; /* Adjust button padding for smaller screens */
+        max-width: 20%; /* Reduce button size in smaller screens */
+    }
 }
