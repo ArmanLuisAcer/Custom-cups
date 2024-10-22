@@ -58,3 +58,61 @@ function prevSlide() {
 
 // Initialize the first slide
 showSlide(slideIndex);
+
+let slideIndex = 0;
+const slides = document.querySelector('.slides');
+const totalSlides = document.querySelectorAll('.slide').length;
+const prevButton = document.querySelector('.prev-button'); // Reference for the previous button
+
+// Function to show a specific slide
+function showSlide(index) {
+    const offset = -index * 100; // Each slide is 100% width
+    slides.style.transform = `translateX(${offset}%)`;
+
+    // Hide prev button on the first slide
+    if (index === 0) {
+        prevButton.style.display = 'none';
+    } else {
+        prevButton.style.display = 'block';
+    }
+}
+
+// Function for moving to the next slide
+function nextSlide() {
+    slideIndex = (slideIndex + 1) % totalSlides;
+    showSlide(slideIndex);
+}
+
+// Function for moving to the previous slide
+function prevSlide() {
+    slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+    showSlide(slideIndex);
+}
+
+// Initialize the first slide and hide prev button if on the first slide
+showSlide(slideIndex);
+
+// Handle touch/swipe events for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+function handleTouchStart(event) {
+    touchStartX = event.changedTouches[0].screenX;
+}
+
+function handleTouchMove(event) {
+    touchEndX = event.changedTouches[0].screenX;
+}
+
+function handleTouchEnd() {
+    if (touchEndX < touchStartX) {
+        nextSlide(); // Swiped left, go to the next slide
+    } else if (touchEndX > touchStartX) {
+        prevSlide(); // Swiped right, go to the previous slide
+    }
+}
+
+// Attach touch event listeners
+slides.addEventListener('touchstart', handleTouchStart);
+slides.addEventListener('touchmove', handleTouchMove);
+slides.addEventListener('touchend', handleTouchEnd);
