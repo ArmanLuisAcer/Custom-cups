@@ -40,31 +40,30 @@ if (cupId) {
 let slideIndex = 0;
 const slides = document.querySelector('.slides');
 const totalSlides = document.querySelectorAll('.slide').length;
-const prevButton = document.querySelector('.prev-button'); // Reference for the previous button
-const nextButton = document.querySelector('.navigation button:nth-child(2)'); // Reference for the next button
 
 function showSlide(index) {
     const offset = -index * 100; // Each slide is 100% width
     slides.style.transform = `translateX(${offset}%)`;
 
     // Hide the prev button on the first slide
-    prevButton.style.display = index === 0 ? 'none' : 'block';
+    const prevButton = document.querySelector('.prev-button');
+    if (index === 0) {
+        prevButton.style.visibility = 'hidden'; // Hide the left button
+    } else {
+        prevButton.style.visibility = 'visible'; // Show the left button
+    }
 }
 
 // Function to navigate to the next slide
 function nextSlide() {
-    if (slideIndex < totalSlides - 1) {
-        slideIndex++;
-        showSlide(slideIndex);
-    }
+    slideIndex = (slideIndex + 1) % totalSlides; // Cycle to next slide
+    showSlide(slideIndex);
 }
 
 // Function to navigate to the previous slide
 function prevSlide() {
-    if (slideIndex > 0) {
-        slideIndex--;
-        showSlide(slideIndex);
-    }
+    slideIndex = (slideIndex - 1 + totalSlides) % totalSlides; // Cycle to previous slide
+    showSlide(slideIndex);
 }
 
 // Initialize the first slide and set visibility for the prev button
@@ -84,11 +83,9 @@ function handleTouchMove(event) {
 
 function handleTouchEnd() {
     // Check if we're on the first slide
-    if (slideIndex === 0) {
-        if (touchEndX > touchStartX) {
-            // Swiped right on the first slide - do nothing
-            return;
-        }
+    if (slideIndex === 0 && touchEndX > touchStartX) {
+        // Swiped right on the first slide - do nothing
+        return;
     }
 
     if (touchEndX < touchStartX) {
