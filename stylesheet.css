@@ -21,7 +21,7 @@
     color: black;
     border-radius: 10px;
     padding: 30px 40px;
-    border: 2px solid black; /* Fixed */
+    border: 2px solid rgba(0,0,0,0.2); /* Fixed */
     backdrop-filter: blur(4px); /* Added blur value */
     position:fixed;
 }
