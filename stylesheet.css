@@ -98,18 +98,18 @@
 .slide {
     min-width: 100%;
     box-sizing: border-box;
-    max-width: 100%;
+    max-width: 100%; /* Ensures slide width does not exceed the container */
 }
 
 .slider img {
     width: 100%;
     height: auto;
-    object-fit: contain;
+    object-fit: contain; /* Prevents the image from being zoomed or stretched */
 }
 
 .navigation {
-    position: fixed; 
-    left: 0;
+    position: fixed;
+    top: 50%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -117,13 +117,8 @@
 }
 
 .navigation button {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: (rgba,255,255,255,0.5);
     border: none;
     cursor: pointer;
     padding: 10px;
-    
-}
-
-.navigation button:hover {
-    background-color: rgba(255, 255, 255, 0.8); 
 }
