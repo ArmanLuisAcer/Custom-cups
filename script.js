@@ -44,14 +44,6 @@ const totalSlides = document.querySelectorAll('.slide').length;
 function showSlide(index) {
     const offset = -index * 100; // Each slide is 100% width
     slides.style.transform = `translateX(${offset}%)`;
-
-    // Hide the prev button on the first slide
-    const prevButton = document.querySelector('.prev-button');
-    if (index === 0) {
-        prevButton.style.visibility = 'hidden'; // Hide the left button
-    } else {
-        prevButton.style.visibility = 'visible'; // Show the left button
-    }
 }
 
 // Function to navigate to the next slide
@@ -66,7 +58,7 @@ function prevSlide() {
     showSlide(slideIndex);
 }
 
-// Initialize the first slide and set visibility for the prev button
+// Initialize the first slide
 showSlide(slideIndex);
 
 // Handle touch/swipe events for mobile
@@ -82,12 +74,6 @@ function handleTouchMove(event) {
 }
 
 function handleTouchEnd() {
-    // Check if we're on the first slide
-    if (slideIndex === 0 && touchEndX > touchStartX) {
-        // Swiped right on the first slide - do nothing
-        return;
-    }
-
     if (touchEndX < touchStartX) {
         nextSlide(); // Swiped left, go to the next slide
     } else if (touchEndX > touchStartX) {
