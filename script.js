@@ -40,31 +40,8 @@ if (cupId) {
 let slideIndex = 0;
 const slides = document.querySelector('.slides');
 const totalSlides = document.querySelectorAll('.slide').length;
-
-function showSlide(index) {
-    const offset = -index * 100; // Each slide is 100% width
-    slides.style.transform = `translateX(${offset}%)`;
-}
-
-function nextSlide() {
-    slideIndex = (slideIndex + 1) % totalSlides;
-    showSlide(slideIndex);
-}
-
-function prevSlide() {
-    slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
-    showSlide(slideIndex);
-}
-
-// Initialize the first slide
-showSlide(slideIndex);
-
-let slideIndex = 0;
-const slides = document.querySelector('.slides');
-const totalSlides = document.querySelectorAll('.slide').length;
 const prevButton = document.querySelector('.prev-button'); // Reference for the previous button
 
-// Function to show a specific slide
 function showSlide(index) {
     const offset = -index * 100; // Each slide is 100% width
     slides.style.transform = `translateX(${offset}%)`;
@@ -77,19 +54,17 @@ function showSlide(index) {
     }
 }
 
-// Function for moving to the next slide
 function nextSlide() {
     slideIndex = (slideIndex + 1) % totalSlides;
     showSlide(slideIndex);
 }
 
-// Function for moving to the previous slide
 function prevSlide() {
     slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
     showSlide(slideIndex);
 }
 
-// Initialize the first slide and hide prev button if on the first slide
+// Initialize the first slide and set visibility for the prev button
 showSlide(slideIndex);
 
 // Handle touch/swipe events for mobile
