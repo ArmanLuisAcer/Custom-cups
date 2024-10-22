@@ -12,7 +12,6 @@
     min-height: 100vh;
     background: url('https://armanluisacer.github.io/Custom-cups/images/Background.gif') no-repeat center center fixed;
     background-size: cover; 
-    position:fixed;
 }
 
 .wrapper {
@@ -23,7 +22,6 @@
     padding: 30px 40px;
     border: 2px solid rgba(0,0,0,0.2); 
     backdrop-filter: blur(4px); 
-    position: absolute;
 }
 
 .wrapper h1 {
@@ -116,8 +114,6 @@
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
-    z-index: 1000; 
-    pointer-events: none; 
 }
 
 .navigation button {
@@ -125,7 +121,7 @@
     border: none;
     cursor: pointer;
     padding: 10px;
-    pointer-events: auto; 
+    
 }
 
 .navigation button:hover {
