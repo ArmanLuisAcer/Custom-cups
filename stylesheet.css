@@ -107,11 +107,12 @@
 .navigation {
     position: fixed;
     top: 50%;
-    width: 100%;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
-    padding: 0 10px; /* Reduced padding to fit better */
+    padding: 0; /* Remove padding to avoid overflow */
     box-sizing: border-box;
 }
 
@@ -120,18 +121,14 @@
     border: none;
     cursor: pointer;
     padding: 10px;
-    max-width: 30%; /* Ensure buttons do not take too much space */
+    max-width: 50px; /* Set a fixed width for buttons */
     box-sizing: border-box;
 }
 
+/* Media query for smaller screens */
 @media (max-width: 768px) {
-    .navigation {
-        width: 100%; /* Maintain full width */
-        padding: 0 5px; /* Reduce padding for smaller screens */
-    }
-
     .navigation button {
-        padding: 8px; /* Adjust button padding for smaller screens */
-        max-width: 20%; /* Reduce button size in smaller screens */
+        padding: 8px;
+        max-width: 40px; /* Reduce button size for smaller screens */
     }
 }
