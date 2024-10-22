@@ -26,10 +26,10 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
             const cupId = urlParams.get('cupId');
 
             // Update history to prevent going back to name entry page
-            window.history.replaceState(null, '', `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute${cupId}&wallpaper=Wallpaper${cupId}`);
+            window.history.replaceState(null, '', `index.html?customer=${encodeURIComponent(capitalizedName)}&wallpaper=Wallpaper${cupId}`);
 
             // Redirect to the thank-you page
-            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&quote=Qoute&wallpaper=Wallpaper${cupId}`;
+            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}wallpaper=Wallpaper${cupId}`;
         })
         .catch(error => {
             console.error('Error:', error);
