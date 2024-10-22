@@ -17,7 +17,7 @@
 .wrapper {
     width: 320px;
     background-color: transparent;
-    color: white;
+    color: black;
     border-radius: 10px;
     padding: 30px 40px;
     border: 2px solid rgba(255, 255, 255, 0.2); /* Fixed */
@@ -44,12 +44,12 @@
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 40px;
     font-size: 16px;
-    color: white;
+    color: black;
     padding: 20px 45px 20px 20px;
 }
 
 .input-box input::placeholder {
-    color: white;
+    color: black;
 }
 
 .input-box i {
@@ -58,7 +58,7 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-    color: white; 
+    color: black; 
 }
 
 .wrapper .btn {
@@ -79,7 +79,7 @@
 
 /*this is for index.html*/
 .thankyoupage-body {
-    color:black;
+    background:black;
 }
 
 .slider {
