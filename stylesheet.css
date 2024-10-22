@@ -146,3 +146,7 @@
     width: 100%;
     padding: 10px;
 }
+
+.prev-button {
+    display: none; /* Initially hide the left button on the first slide */
+}
