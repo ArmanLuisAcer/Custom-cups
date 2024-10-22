@@ -54,6 +54,9 @@ function nextSlide() {
 
 // Function to navigate to the previous slide
 function prevSlide() {
+    if (slideIndex === 0) {
+        return; // Do nothing if already on the first slide
+    }
     slideIndex = (slideIndex - 1 + totalSlides) % totalSlides; // Cycle to previous slide
     showSlide(slideIndex);
 }
