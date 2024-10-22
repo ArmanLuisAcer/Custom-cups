@@ -1,4 +1,4 @@
-// Quotes based on cupId
+// Quotes based on cupId 
 const quotes = {
     1: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
     2: "Believe you can and you're halfway there.",
