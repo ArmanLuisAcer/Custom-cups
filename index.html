@@ -3,41 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You!</title>
+    <title>Enter Your Name</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body class="thankyoupage-body">
-    <div class="slider">
-        <div class="slides">
-            <div class="slide">
-                <h1 id="greeting">Thank you, [Customer's Name]!</h1>
-                <img src="images/thankyouletter.png" alt="Greeting Image">
+<body class="name-entry-body">
+
+    <div class="wrapper">
+        <form id="nameForm"> 
+            <h1>Welcome!</h1>
+
+            <div class="input-box">
+                <input type="text" id="customerName" placeholder="Firstname" maxlength="15" required>
+                <i class='bx bxs-user'></i>       
             </div>
-            <div class="slide">
-                <h2>Always remember...</h2>
-                <div class="quote-container">
-                    <img id="quoteImage" src="images/Qoute.gif" alt="Quote Background">
-                    <div class="quote-overlay">
-                        <p id="dynamicQuote">[Your quote will appear here]</p>
-                    </div>
-                </div>
+
+            <div class="input-box">
+                <input type="text" id="customerLastname" placeholder="Lastname" maxlength="15" required>
+                <i class='bx bxs-user'></i>
             </div>
-            <div class="slide">
-                <h2>Your free wallpaper!</h2>
-                <p>Scroll down to download the image...</p>
-                <img id="wallpaperImage" src="images/Wallpaper1.jpg" alt="Wallpaper">
-                <a id="wallpaperDownloadLink" href="#" download="">Download Wallpaper</a>
-            </div>
-            <div class="slide">
-                <h2>Contact Us</h2>
-                <img src="images/feedbacks.png" alt="Contact Information">
-            </div>
-        </div>
-        <div class="navigation">
-            <button class="prev-button" onclick="prevSlide()">&#10094; &#10094;</button>
-            <button class="next-button" onclick="nextSlide()">&#10095; &#10095;</button>
-        </div>
+
+            <button type="submit" class="btn" id="submitButton">
+                <span class="submit-text">Submit</span>
+                <div class="loader" id="loader" style="display: none;"></div>
+            </button>
+        </form>
     </div>
-    <script src="script.js"></script>
+
+    <p id="error" style="color:red;"></p>
+
+    <script src="thankyoupage.js"></script> 
 </body>
 </html>
