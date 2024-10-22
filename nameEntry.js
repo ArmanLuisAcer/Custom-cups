@@ -11,12 +11,14 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
     // Show the loader and hide the submit text
     loader.style.display = 'block'; // Show the loader
     submitText.style.visibility = 'hidden'; // Hide the submit text
+    submitText.style.opacity = '0'; // Fade out submit text
 
     // Capitalize the first letter and check length
     if (nameInput.length > 15) {
         document.getElementById('error').innerText = "Name must be 15 characters or less.";
         submitButton.disabled = false; // Re-enable button if there's an error
         submitText.style.visibility = 'visible'; // Show the submit text again
+        submitText.style.opacity = '1'; // Reset opacity
         loader.style.display = 'none'; // Hide the loader
         return;
     }
@@ -43,6 +45,7 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
             console.error('Error:', error);
             submitButton.disabled = false; // Re-enable button if there's an error
             submitText.style.visibility = 'visible'; // Show the submit text again
+            submitText.style.opacity = '1'; // Reset opacity
             loader.style.display = 'none'; // Hide the loader
         });
 });
