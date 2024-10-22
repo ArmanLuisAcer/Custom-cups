@@ -80,6 +80,14 @@ function handleTouchMove(event) {
 }
 
 function handleTouchEnd() {
+    // Check if we're on the first slide
+    if (slideIndex === 0) {
+        if (touchEndX > touchStartX) {
+            // Swiped right on the first slide - do nothing
+            return;
+        }
+    }
+
     if (touchEndX < touchStartX) {
         nextSlide(); // Swiped left, go to the next slide
     } else if (touchEndX > touchStartX) {
