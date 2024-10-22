@@ -11,7 +11,7 @@
     align-items: center;
     min-height: 100vh;
     background: url('https://armanluisacer.github.io/Custom-cups/images/Background.gif') no-repeat center center fixed;
-    background-size: cover; /* Ensures the background covers the whole area */
+    background-size: cover; 
     position:fixed;
 }
 
@@ -21,9 +21,9 @@
     color: black;
     border-radius: 10px;
     padding: 30px 40px;
-    border: 2px solid rgba(0,0,0,0.2); /* Fixed */
-    backdrop-filter: blur(4px); /* Added blur value */
-    position:fixed;
+    border: 2px solid rgba(0,0,0,0.2); 
+    backdrop-filter: blur(4px); 
+    position: absolute;
 }
 
 .wrapper h1 {
@@ -34,7 +34,7 @@
 .wrapper .input-box {
     width: 100%;
     height: 50px;
-    margin: 20px 0; /* Adjusted */
+    margin: 20px 0; 
     position: relative; 
 }
 
@@ -65,7 +65,7 @@
 
 .wrapper .btn {
     width: 100%;
-    height: 40px; /* Increased height */
+    height: 40px; 
     background: white;
     border: none;
     outline: none;
@@ -81,7 +81,7 @@
 
 /*this is for index.html*/
 .thankyoupage-body {
-    background:black;
+    background: black;
 }
 
 .slider {
@@ -100,27 +100,34 @@
 .slide {
     min-width: 100%;
     box-sizing: border-box;
-    max-width: 100%; /* Ensures slide width does not exceed the container */
+    max-width: 100%;
 }
 
 .slider img {
     width: 100%;
     height: auto;
-    object-fit: contain; /* Prevents the image from being zoomed or stretched */
+    object-fit: contain;
 }
 
 .navigation {
-    position: fixed;
-    top: 50%;
+    position: fixed; 
+    left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
+    z-index: 1000; 
+    pointer-events: none; 
 }
 
 .navigation button {
-    background-color:(rgba,255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border: none;
     cursor: pointer;
     padding: 10px;
+    pointer-events: auto; 
+}
+
+.navigation button:hover {
+    background-color: rgba(255, 255, 255, 0.8); 
 }
