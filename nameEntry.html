@@ -8,27 +8,28 @@
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body class="name-entry-body">
-    
+
     <div class="wrapper">
         <form id="nameForm"> 
             <h1>Welcome!</h1>
-          
+
             <div class="input-box">
                 <input type="text" id="customerName" placeholder="Firstname" maxlength="15" required>
                 <i class='bx bxs-user'></i>       
             </div>
-           
+
             <div class="input-box">
                 <input type="text" id="customerLastname" placeholder="Lastname" maxlength="15" required>
                 <i class='bx bxs-user'></i>
             </div>
-   
+
             <button type="submit" class="btn">Submit</button>
-        
+            <div class="loader" id="loader" style="display: none;"></div> <!-- Loader here -->
+
         </form>
-   
+
     </div>
-    
+
     <p id="error" style="color:red;"></p>
 
     <script src="nameEntry.js"></script> 
