@@ -20,7 +20,7 @@
     color: black;
     border-radius: 10px;
     padding: 30px 40px;
-    border: 2px solid rgba(0, 0, 0, 0.2); 
+    border: 2px solid rgba(0,0,0,0.2); 
     backdrop-filter: blur(4px); 
 }
 
@@ -62,35 +62,35 @@
 }
 
 .wrapper .btn {
-    position: relative; /* Position relative for absolute positioning of loader */
-    width: 100%; /* Full width */
-    height: 40px; /* Fixed height */
-    background: white; /* Button background color */
-    border: none; /* Remove border */
-    outline: none; /* Remove outline */
-    border-radius: 40px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 16px; /* Font size */
-    color: black; /* Text color */
-    font-weight: 600; /* Font weight */
-    transition: background-color 0.3s; /* Transition effect */
-}
-
-.btn:hover {
-    background-color: #e02949; /* Darker shade on hover */
+    width: 100%;
+    height: 50px; 
+    background: white;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    margin-bottom: 35px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .loader {
-    width: 20px; /* Size of the loader */
-    height: 20px; /* Size of the loader */
-    border-radius: 50%; /* Make it a circle */
-    position: absolute; /* Position absolute to overlay on button */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust to center */
-    display: none; /* Initially hidden */
-    animation: spin 1s linear infinite; /* Spin animation */
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-left-color: orangered;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes spin {
@@ -99,8 +99,7 @@
 }
 
 .submit-text {
-    display: inline; /* Show submit text inline */
-    transition: visibility 0.3s, opacity 0.3s; /* Smooth transition for visibility */
+    display: inline-block;
 }
 
 /*this is for index.html*/
