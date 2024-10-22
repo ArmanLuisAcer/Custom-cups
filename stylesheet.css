@@ -78,6 +78,9 @@
 
 
 /*this is for index.html*/
+.thankyoupage-body {
+    color:black;
+}
 
 .slider {
     width: 100%;
