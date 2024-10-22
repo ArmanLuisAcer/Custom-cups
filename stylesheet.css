@@ -76,43 +76,42 @@
     margin-bottom: 35px;
 }
 
+.btn {
+    position: relative; /* Position relative for absolute positioning of loader */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    background-color: #f03355; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.btn:hover {
+    background-color: #e02949; /* Darker shade on hover */
+}
+
 .loader {
-  width: 50px; /* Width of the loader */
-  aspect-ratio: 1; /* Maintain a square aspect ratio */
-  display: grid; /* Use grid layout */
-  -webkit-mask: conic-gradient(from 15deg, #0000, #000); /* Create a conic gradient mask */
-  animation: l26 1s infinite steps(12); /* Animation with 12 steps, infinite */
+    width: 20px; /* Size of the loader */
+    height: 20px; /* Size of the loader */
+    border-radius: 50%; /* Make it a circle */
+    position: absolute; /* Position absolute to overlay on button */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to center */
+    display: none; /* Initially hidden */
+    animation: spin 1s linear infinite; /* Spin animation */
 }
 
-/* Background gradients for the loader */
-.loader,
-.loader:before,
-.loader:after {
-  background:
-    radial-gradient(closest-side at 50% 12.5%, #f03355 96%, #0000) 50% 0 / 20% 80% repeat-y,
-    radial-gradient(closest-side at 12.5% 50%, #f03355 96%, #0000) 0 50% / 80% 20% repeat-x;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-/* Before pseudo-element styling */
-.loader:before,
-.loader:after {
-  content: ""; /* Required for pseudo-elements */
-  grid-area: 1 / 1; /* Position in the grid */
-  transform: rotate(30deg); /* Rotate the element */
+.submit-text {
+    display: inline; /* Show submit text inline */
 }
-
-/* After pseudo-element styling */
-.loader:after {
-  transform: rotate(60deg); /* Additional rotation for the second pseudo-element */
-}
-
-/* Keyframes for the loader animation */
-@keyframes l26 {
-  100% {
-    transform: rotate(1turn); /* Rotate fully on completion */
-  }
-}
-
 
 /*this is for index.html*/
 
