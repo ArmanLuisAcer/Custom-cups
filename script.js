@@ -38,7 +38,7 @@ const customer = urlParams.get('customer');
 
 // Set customer name dynamically
 if (customer) {
-    document.getElementById('greeting').innerText = `Thank you, ${customer}!`;
+    document.getElementById('greeting').innerText = `Thank you, ${customerName}!`;
 }
 
 // Set quote image dynamically
