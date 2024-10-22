@@ -41,27 +41,30 @@ let slideIndex = 0;
 const slides = document.querySelector('.slides');
 const totalSlides = document.querySelectorAll('.slide').length;
 const prevButton = document.querySelector('.prev-button'); // Reference for the previous button
+const nextButton = document.querySelector('.navigation button:nth-child(2)'); // Reference for the next button
 
 function showSlide(index) {
     const offset = -index * 100; // Each slide is 100% width
     slides.style.transform = `translateX(${offset}%)`;
 
-    // Hide prev button on the first slide
-    if (index === 0) {
-        prevButton.style.display = 'none';
-    } else {
-        prevButton.style.display = 'block';
+    // Hide the prev button on the first slide
+    prevButton.style.display = index === 0 ? 'none' : 'block';
+}
+
+// Function to navigate to the next slide
+function nextSlide() {
+    if (slideIndex < totalSlides - 1) {
+        slideIndex++;
+        showSlide(slideIndex);
     }
 }
 
-function nextSlide() {
-    slideIndex = (slideIndex + 1) % totalSlides;
-    showSlide(slideIndex);
-}
-
+// Function to navigate to the previous slide
 function prevSlide() {
-    slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
-    showSlide(slideIndex);
+    if (slideIndex > 0) {
+        slideIndex--;
+        showSlide(slideIndex);
+    }
 }
 
 // Initialize the first slide and set visibility for the prev button
