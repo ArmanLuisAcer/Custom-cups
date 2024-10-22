@@ -12,6 +12,7 @@
     min-height: 100vh;
     background: url('https://armanluisacer.github.io/Custom-cups/images/Background.gif') no-repeat center center fixed;
     background-size: cover; /* Ensures the background covers the whole area */
+    position:fixed;
 }
 
 .wrapper {
@@ -22,6 +23,7 @@
     padding: 30px 40px;
     border: 2px solid black; /* Fixed */
     backdrop-filter: blur(4px); /* Added blur value */
+    position:fixed;
 }
 
 .wrapper h1 {
