@@ -1,90 +1,16 @@
-.name-entry-body * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-
-.name-entry-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: url('https://armanluisacer.github.io/Custom-cups/images/Background.gif') no-repeat center center fixed;
-    background-size: cover; 
-}
-
-.wrapper {
-    width: 320px;
-    background-color: transparent;
-    color: black;
-    border-radius: 10px;
-    padding: 30px 40px;
-    border: 2px solid rgba(0,0,0,0.2); 
-    backdrop-filter: blur(4px); 
-}
-
-.wrapper h1 {
-    font-size: 20px;
-    text-align: center;
-}
-
-.wrapper .input-box {
-    width: 100%;
-    height: 50px;
-    margin: 20px 0; 
-    position: relative; 
-}
-
-.input-box input {
-    height: 100%;
-    width: 100%;
-    background: transparent;
-    outline: none;
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    border-radius: 40px;
-    font-size: 16px;
-    color: black;
-    padding: 20px 45px 20px 20px;
-}
-
-.input-box input::placeholder {
-    color: black;
-}
-
-.input-box i {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: black; 
-}
-
-.wrapper .btn {
-    width: 100%;
-    height: 40px; 
-    background: white;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    font-size: 16px;
-    color: black;
-    font-weight: 600;
-    margin-bottom: 35px;
-}
-
 .btn {
     position: relative; /* Position relative for absolute positioning of loader */
-    padding: 10px 20px; /* Padding for the button */
-    font-size: 16px; /* Font size */
-    background-color: #f03355; /* Button background color */
-    color: white; /* Text color */
+    width: 100%; /* Full width */
+    height: 40px; /* Fixed height */
+    background: white; /* Button background color */
     border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove outline */
+    border-radius: 40px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
     cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    color: black; /* Text color */
+    font-weight: 600; /* Font weight */
     transition: background-color 0.3s; /* Transition effect */
 }
 
@@ -111,6 +37,7 @@
 
 .submit-text {
     display: inline; /* Show submit text inline */
+    transition: visibility 0.3s, opacity 0.3s; /* Smooth transition for visibility */
 }
 
 /*this is for index.html*/
