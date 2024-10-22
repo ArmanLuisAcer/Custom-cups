@@ -76,6 +76,43 @@
     margin-bottom: 35px;
 }
 
+.loader {
+  width: 50px; /* Width of the loader */
+  aspect-ratio: 1; /* Maintain a square aspect ratio */
+  display: grid; /* Use grid layout */
+  -webkit-mask: conic-gradient(from 15deg, #0000, #000); /* Create a conic gradient mask */
+  animation: l26 1s infinite steps(12); /* Animation with 12 steps, infinite */
+}
+
+/* Background gradients for the loader */
+.loader,
+.loader:before,
+.loader:after {
+  background:
+    radial-gradient(closest-side at 50% 12.5%, #f03355 96%, #0000) 50% 0 / 20% 80% repeat-y,
+    radial-gradient(closest-side at 12.5% 50%, #f03355 96%, #0000) 0 50% / 80% 20% repeat-x;
+}
+
+/* Before pseudo-element styling */
+.loader:before,
+.loader:after {
+  content: ""; /* Required for pseudo-elements */
+  grid-area: 1 / 1; /* Position in the grid */
+  transform: rotate(30deg); /* Rotate the element */
+}
+
+/* After pseudo-element styling */
+.loader:after {
+  transform: rotate(60deg); /* Additional rotation for the second pseudo-element */
+}
+
+/* Keyframes for the loader animation */
+@keyframes l26 {
+  100% {
+    transform: rotate(1turn); /* Rotate fully on completion */
+  }
+}
+
 
 /*this is for index.html*/
 
