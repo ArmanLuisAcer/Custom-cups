@@ -189,7 +189,7 @@
 
 .downloadButton {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 15px;
     background-color: #007BFF;
     color: white;
     text-align: center;
@@ -199,8 +199,7 @@
     font-size: 16px;
     transition: background-color 0.3s;
     position: relative;
-    top: 5px;
-    left: 35px;
+    left:20px;
 }
 
 .downloadButton:hover {
