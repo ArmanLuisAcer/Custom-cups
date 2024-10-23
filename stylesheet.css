@@ -107,6 +107,10 @@
 
 /*this is for index.html*/
 
+.thankyoupagebody{
+   font-family: Arial, Helvetica, sans-serif;
+   }
+
 .slider {
     width: 100%;
     max-width: 600px;
