@@ -69,6 +69,14 @@ const totalSlides = document.querySelectorAll('.slide').length;
 function showSlide(index) {
     const offset = -index * 100; // Each slide is 100% width
     slides.style.transform = `translateX(${offset}%)`;
+
+    const prevButton = document.querySelector('.prev-button');
+
+    if (index === 0) {
+        prevButton.style.visibility = 'hidden'; // Hide on the first slide
+    } else {
+        prevButton.style.visibility = 'visible'; // Show on slides 2, 3, etc.
+    }
 }
 
 // Function to navigate to the next slide
