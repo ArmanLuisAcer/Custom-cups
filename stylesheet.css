@@ -1,5 +1,4 @@
 
-
 .name-entry-body * {
     margin: 0;
     padding: 0;
@@ -209,9 +208,12 @@ dynamicqoute{
     position: relative;
     top: 5px;
     left: 35px;
-    l
+    
 }
-
+.downloadButton a{
+    text-decoration:none;
+    color:white;
+}
 .downloadButton:hover {
     background-color: #0056b3;
 }
