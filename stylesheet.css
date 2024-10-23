@@ -124,6 +124,8 @@
     min-width: 100%;
     box-sizing: border-box;
     max-width: 100%; 
+    position:relative;
+    top:10%
 }
 .slider img {
     width: 100%;
