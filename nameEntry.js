@@ -3,10 +3,7 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
     const submitButton = document.querySelector('button[type="submit"]');
     const loader = document.getElementById('loader');
     const submitText = document.querySelector('.submit-text');
-    
-    const firstNameInput = document.getElementById('customerName').value.trim();
-    const lastNameInput = document.getElementById('customerLastname').value.trim();
-    const timestamp = new Date().toISOString(); // Get the current timestamp in ISO format
+    const nameInput = document.getElementById('customerName').value.trim();
 
     // Show loader and hide the submit text
     loader.style.display = 'inline-block';
@@ -15,42 +12,32 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
     // Disable the button to prevent multiple submissions
     submitButton.disabled = true;
 
-    // Capitalize the first letter of both first and last names
-    const capitalizedFirstName = firstNameInput.charAt(0).toUpperCase() + firstNameInput.slice(1).toLowerCase();
-    const capitalizedLastName = lastNameInput.charAt(0).toUpperCase() + lastNameInput.slice(1).toLowerCase();
-
-    // Regular expression to check for alphabetic characters only
-    const nameRegex = /^[a-zA-Z]+$/;
-
-    // Check input lengths and content
-    if (capitalizedFirstName.length > 15 || capitalizedLastName.length > 15) {
-        alert("Each name must be 15 characters or less.");
+    // Capitalize the first letter and check length
+    if (nameInput.length > 15) {
+        document.getElementById('error').innerText = "Name must be 15 characters or less.";
         submitButton.disabled = false; // Re-enable button if there's an error
         loader.style.display = 'none';
         submitText.style.display = 'inline-block'; // Show submit text again
         return;
     }
 
-    // Validate that names contain only alphabetic characters
-    if (!nameRegex.test(capitalizedFirstName) || !nameRegex.test(capitalizedLastName)) {
-        alert("Names can only contain letters."); // Change from innerText to alert
-        submitButton.disabled = false; // Re-enable button if there's an error
-        loader.style.display = 'none';
-        submitText.style.display = 'inline-block'; // Show submit text again
-        return;
-    }
+    const capitalizedName = nameInput.charAt(0).toUpperCase() + nameInput.slice(1).toLowerCase();
 
-    // Send the first name, last name, and timestamp to the Google Apps Script
-    fetch(`https://script.google.com/macros/s/AKfycbysWRyazMUfbqa-rdEtkSDdwfJo9CJnWak-QieMm7ULPxl9zANb_ulXn5WVDqAeLghl8A/exec?firstName=${encodeURIComponent(capitalizedFirstName)}&lastName=${encodeURIComponent(capitalizedLastName)}&timestamp=${encodeURIComponent(timestamp)}`)
+    // Send the name to the Google Apps Script
+    fetch(`https://script.google.com/macros/s/AKfycbxXmHwT7BRsW1kHgjOutAVpiR7zwyL_pK5yemq6lA-zGBx2QYSYfMzqFG7Dqf3iBhHsXw/exec?name=${encodeURIComponent(capitalizedName)}`)
         .then(response => response.text()) 
         .then(data => {
             console.log(data); // Log success message or handle response
 
-            // Handle successful submission, e.g., redirect or show a message
+            // Assuming the cupId is passed as a URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const cupId = urlParams.get('cupId');
+
+            // Update history to prevent going back to name entry page
             window.history.replaceState(null, '', `index.html?customer=${encodeURIComponent(capitalizedName)}&wallpaper=Wallpaper${cupId}`);
 
             // Redirect to the thank-you page
-            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)&wallpaper=Wallpaper${cupId}`;
+            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedName)}&wallpaper=Wallpaper${cupId}`;
         })
         .catch(error => {
             console.error('Error:', error);
