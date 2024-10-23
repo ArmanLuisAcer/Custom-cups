@@ -123,7 +123,8 @@
 .slide {
     min-width: 100%;
     box-sizing: border-box;
-    max-width: 100%; 
+    max-width: 100%;
+    position: relative;
 }
 
 .slider img {
@@ -187,6 +188,16 @@
     margin-right: 40px;
 }
 
+.wallapaperh2{
+    display:flex;
+    align-items:center;
+}
+#wallpaperImage{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
 .downloadButton {
     display: inline;
     padding: 10px 15px;
