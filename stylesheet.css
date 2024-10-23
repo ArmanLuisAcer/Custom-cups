@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('https://armanluisacer.github.io/Custom-cups/images/Background.gif') no-repeat center center fixed;
+    background: url('images/Background.gif') no-repeat center center fixed;
     background-size: cover; 
 }
 
