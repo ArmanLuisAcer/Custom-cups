@@ -3,7 +3,7 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
     const submitButton = document.querySelector('button[type="submit"]');
     const loader = document.getElementById('loader');
     const submitText = document.querySelector('.submit-text');
-
+    
     const firstNameInput = document.getElementById('customerName').value.trim();
     const lastNameInput = document.getElementById('customerLastname').value.trim();
     const timestamp = new Date().toISOString(); // Get the current timestamp in ISO format
@@ -42,21 +42,12 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
 
     // Send the first name, last name, and timestamp to the Google Apps Script
     fetch(`https://script.google.com/macros/s/AKfycbysWRyazMUfbqa-rdEtkSDdwfJo9CJnWak-QieMm7ULPxl9zANb_ulXn5WVDqAeLghl8A/exec?firstName=${encodeURIComponent(capitalizedFirstName)}&lastName=${encodeURIComponent(capitalizedLastName)}&timestamp=${encodeURIComponent(timestamp)}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text(); 
-        })
+        .then(response => response.text()) 
         .then(data => {
             console.log(data); // Log success message or handle response
 
-            // Assuming cupId is retrieved from the URL parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            const cupId = urlParams.get('cupId');
-
-            // Handle successful submission, e.g., redirect
-            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedFirstName + " " + capitalizedLastName)}&wallpaper=Wallpaper${cupId}`;
+            // Handle successful submission, e.g., redirect or show a message
+            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedFirstName)}&lastName=${encodeURIComponent(capitalizedLastName)}`;
         })
         .catch(error => {
             console.error('Error:', error);
