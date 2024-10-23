@@ -47,7 +47,7 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
             console.log(data); // Log success message or handle response
 
             // Handle successful submission, e.g., redirect or show a message
-            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedFirstName)}&lastName=${encodeURIComponent(capitalizedLastName)}`;
+            window.location.href = `index.html?customer=${encodeURIComponent(capitalizedFirstName)}&lastName=${encodeURIComponent(capitalizedLastName)}&wallpaper=Wallpaper${cupId}`;
         })
         .catch(error => {
             console.error('Error:', error);
