@@ -28,7 +28,7 @@ document.getElementById('nameForm').addEventListener('submit', function (event) 
     const capitalizedLastname = lastnameInput.charAt(0).toUpperCase() + lastnameInput.slice(1).toLowerCase();
 
     // Send the first name and last name to the Google Apps Script
-    fetch(`https://script.google.com/macros/s/AKfycbxXmHwT7BRsW1kHgjOutAVpiR7zwyL_pK5yemq6lA-zGBx2QYSYfMzqFG7Dqf3iBhHsXw/exec?name=${encodeURIComponent(capitalizedName)}&lastname=${encodeURIComponent(capitalizedLastname)}`)
+    fetch(`https://script.google.com/macros/s/AKfycbwAm7eybxuPELg__VEiyZJDwvkHA-T3ZenCBYrPfrkGvOBAq-aCntABrnLfoXE8I6IrXA/exec?name=${encodeURIComponent(capitalizedName)}&lastname=${encodeURIComponent(capitalizedLastname)}`)
         .then(response => response.text()) 
         .then(data => {
             console.log(data); // Log success message or handle response
