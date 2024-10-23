@@ -3,35 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enter Your Name</title>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <title>Thank You!</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body class="name-entry-body">
-
-    <div class="wrapper">
-        <form id="nameForm"> 
-            <h1>Welcome!</h1>
-
-            <div class="input-box">
-                <input type="text" id="customerName" placeholder="Firstname" maxlength="15" required>
-                <i class='bx bxs-user'></i>       
+<body class="thankyoupage-body">
+    <div class="slider">
+        <div class="slides">
+            <!-- Slide 1: Greeting -->
+            <div class="slide">
+                <h1 id="greeting">Thank you, [Customer's Name]!</h1>
+                <img src="images/thankyouletter.png" alt="Greeting Image">
             </div>
 
-            <div class="input-box">
-                <input type="text" id="customerLastname" placeholder="Lastname" maxlength="15" required>
-                <i class='bx bxs-user'></i>
+            <!-- Slide 2: Quote -->
+            <div class="slide">
+                <h2>Always remember...</h2>
+                <div class="quote-container">
+                    <img id="quoteImage" src="images/Quote.gif" alt="Quote Background">
+                    <div class="quote-overlay">
+                        <p id="dynamicquote">[Your quote will appear here]</p>
+                    </div>
+                </div>
             </div>
 
-            <button type="submit" class="btn" id="submitButton">
-                <span class="submit-text">Submit</span>
-                <div class="loader" id="loader" style="display: none;"></div>
-            </button>
-        </form>
+            <!-- Slide 3: Wallpaper Download -->
+            <div class="slide">
+                <h2>Your free wallpaper!</h2>
+                <p>Scroll down to download the image...</p>
+                <img id="wallpaperImage" src="images/Wallpaper1.jpg" alt="Wallpaper">
+                <a id="wallpaperDownloadLink" href="images/Wallpaper1.jpg" download>Download Wallpaper</a>
+            </div>
+
+            <!-- Slide 4: Contact Us -->
+            <div class="slide">
+                <h2>Contact Us</h2>
+                <img src="images/feedbacks.png" alt="Contact Information">
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="navigation">
+            <button class="prev-button" onclick="prevSlide()">&#10094; &#10094;</button>
+            <button class="next-button" onclick="nextSlide()">&#10095; &#10095;</button>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn" id="submitButton">
+            <span class="submit-text">Submit</span>
+            <div class="loader" id="loader" style="display: none;"></div>
+        </button>
     </div>
 
-    <p id="error" style="color:red;"></p>
-
-    <script src="script.js"></script> 
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
