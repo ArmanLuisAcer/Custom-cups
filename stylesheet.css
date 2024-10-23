@@ -185,10 +185,11 @@
 
 .slide h2 {
     margin-right: 40px;
+    display:inline;
 }
 
 .downloadButton {
-    display: inline-block;
+    display: inline;
     padding: 10px 15px;
     background-color: #007BFF;
     color: white;
