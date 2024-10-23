@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('wallpaperImage').src = `images/${wallpaper}.jpg`;
     document.getElementById('wallpaperDownloadLink').href = `images/${wallpaper}.jpg`;
 });
+document.getElementById('wallpaperDownloadLink').setAttribute('download', 'Hacker_ng_TVL5💟.jpg');
 
 // Function to set the dynamic quote for slide 2
 function setDynamicQuote(cupId) {
