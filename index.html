@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You!</title>
     <link rel="stylesheet" href="stylesheet.css">
+<link   href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel='stylesheet' >
+
 </head>
 <body class="thankyoupage-body">
     <div class="slider">
@@ -28,10 +30,13 @@
 
             <!-- Slide 3: Wallpaper Download -->
             <div class="slide">
-                <h2>Your free wallpaper!</h2>
-                <p>Scroll down to download the image...</p>
+                <h2 class="inline">Your free wallpaper!</h2>
+                <div class="downloadButton"><b>
+                    <a id="wallpaperDownloadLink" href="images/Wallpaper1.jpg"download>Download</b></a>
+                    <i class='bx bxs-download'> </i>
+                </div><br>
+                
                 <img id="wallpaperImage" src="images/Wallpaper1.jpg" alt="Wallpaper Image">
-                <a id="wallpaperDownloadLink" href="images/Wallpaper1.jpg" download>Download Wallpaper</a>
             </div>
 
             <!-- Slide 4: Contact Us -->
@@ -43,7 +48,7 @@
 
         <div class="navigation">
             <button class="prev-button" onclick="prevSlide()">&#10094; &#10094;</button>
-            <button class="next-button" onclick="nextSlide()">&#10095; &#10095;</button>
+            <button class="next-button" onclick="nextSlide()">&#10095; &#10095; &#10095;</button>
         </div>
     </div>
 
