@@ -197,7 +197,7 @@ dynamicqoute{
 }
 .downloadButton {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 15px;
     background-color: #007BFF;
     color: white;
     text-align: center;
@@ -208,7 +208,7 @@ dynamicqoute{
     transition: background-color 0.3s;
     position: relative;
     top: 5px;
-    left: 10px;
+    left: 40px;
     
 }
 .downloadButton a{
