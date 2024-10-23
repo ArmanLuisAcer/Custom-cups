@@ -214,7 +214,7 @@
 .downloadButton:hover {
     background-color: #0056b3;
 }
-.downloadButton{
+.downloadButton a{
     text-decoration:none;
     color:white;
 }
