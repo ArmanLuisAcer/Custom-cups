@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('wallpaperImage').src = `images/${wallpaper}.jpg`;
     document.getElementById('wallpaperDownloadLink').href = `images/${wallpaper}.jpg`;
 });
-document.getElementById('wallpaperDownloadLink').setAttribute('download', 'Hacker_ng_TVL5💟.jpg');
 
 // Function to set the dynamic quote for slide 2
 function setDynamicQuote(cupId) {
@@ -88,10 +87,8 @@ function nextSlide() {
 
 // Function to navigate to the previous slide
 function prevSlide() {
-    if (slideIndex === 0) {
-        slideIndex = totalSlides - 1; // Go to the last slide if on the first slide
-    } else {
-        slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+    if (slideIndex > 0) {
+        slideIndex = (slideIndex - 1) % totalSlides; // Move to the previous slide only if not on the first slide
     }
     showSlide(slideIndex);
 }
