@@ -202,18 +202,17 @@ img {
     margin-bottom: 20px;
 }
 
-/* Ensure the h2 and button are aligned next to each other */
-.slide {
-    display: inline-block;
-    width: 100%;
-    text-align: left;
+/* Flexbox container for title and button */
+.h2btn-container {
+    display: flex;
+    justify-content: flex-start; /* Align the button next to the heading */
+    align-items: center; /* Vertically align the button and heading */
+    margin-bottom: 20px;
 }
 
 .wallpaperh2 {
-    display: inline-block;
-    margin-right: 20px; /* Spacing between the h2 and the button */
+    margin-right: 5px; /* Space between the heading and the button */
     font-size: 24px;
-    vertical-align: middle; /* Ensure alignment with the button */
 }
 
 .downloadButton {
@@ -227,16 +226,17 @@ img {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
-    vertical-align: middle; /* Keep it aligned with the h2 */
 }
 
+/* Hover effect for the button */
+.downloadButton:hover {
+    background-color: #0056b3;
+}
+
+/* Ensure the link looks like part of the button */
 .downloadButton a {
     text-decoration: none;
     color: white;
-}
-
-.downloadButton:hover {
-    background-color: #0056b3;
 }
 .feedback-container {
     position: relative;
