@@ -194,12 +194,8 @@ img {
     display: inline;
 }
 
-/* Align the h2 and button next to each other */
-.slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+.slide{
+    margin:40px;
 }
 
 /* Flexbox container for title and button */
