@@ -215,9 +215,9 @@ img {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
-    position: absolute;
+    position: relative;
     left:70%;
-    top:5px;
+    top:5%;
 }
 
 .downloadButton:hover {
