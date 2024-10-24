@@ -217,7 +217,7 @@ img {
     transition: background-color 0.3s;
     position: relative;
     left:70%;
-    bottom:90%;
+    bottom:10px;
 }
 
 .downloadButton:hover {
