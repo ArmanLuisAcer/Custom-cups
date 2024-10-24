@@ -195,7 +195,7 @@ img {
 }
 
 
-.h2btn-container
+.h2btn-container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
