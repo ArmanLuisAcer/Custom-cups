@@ -233,9 +233,8 @@ img {
 }
 
 /* Optional: Adjust the layout for smaller screens using media queries */
-@media (max-width: 768px) {
+
     .slide {
-        flex-direction: column; /* Stack heading and button vertically on small screens */
         text-align: center;
     }
 
