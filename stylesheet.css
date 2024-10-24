@@ -194,16 +194,20 @@ img {
     display: inline;
 }
 
-.slide h2 {
-    margin-right: 40px;
+/* Align the h2 and button next to each other */
+.slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.wallpaperh2{
-    display:inline-block;
+.wallpaperh2 {
+    display: inline-block;
+    margin-right: 20px; /* Adjust spacing between the heading and button */
+    font-size: 24px; /* Adjust font size if needed */
 }
-.slide .downloadButton{
-    display:inline;
-}
+
 .downloadButton {
     display: inline-block;
     padding: 10px 15px;
@@ -215,15 +219,30 @@ img {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
-    position:;
 }
 
+/* Hover effect for the button */
 .downloadButton:hover {
     background-color: #0056b3;
 }
-.downloadButton a{
-    text-decoration:none;
-    color:white;
+
+/* Ensure the link looks like part of the button */
+.downloadButton a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Optional: Adjust the layout for smaller screens using media queries */
+@media (max-width: 768px) {
+    .slide {
+        flex-direction: column; /* Stack heading and button vertically on small screens */
+        text-align: center;
+    }
+
+    .wallpaperh2 {
+        margin-right: 0;
+        margin-bottom: 10px; /* Add space below the heading */
+    }
 }
 .feedback-container {
     position: relative;
