@@ -115,8 +115,8 @@ img {
 /*this is for index.html*/
 
 .thankyoupagebody{
-   font-family: Arial, Helvetica, sans-serif;
-   }
+       font-family: "Lucida Console", "Courier New", monospace;
+}
 
 .slider {
     width: 100%;
