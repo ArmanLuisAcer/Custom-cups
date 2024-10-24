@@ -195,12 +195,10 @@ img {
 }
 
 
-/* Flexbox container for title and button */
-.h2btn-container {
+.h2btn-container
     display: flex;
-    justify-content: flex-start; /* Align the button next to the heading */
-    align-items: center; /* Vertically align the button and heading */
-    margin-bottom: 20px;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .wallpaperh2 {
